@@ -1,4 +1,5 @@
 /target/
+/work/
 /data/
 /.env
 /.env.*
@@ -6,3 +7,4 @@
 *.tmp
 .DS_Store
 Thumbs.db
+/data

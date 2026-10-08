@@ -89,6 +89,15 @@ pub fn router(app: App) -> Router {
             }),
         )
         .route("/api/login", post(login).layer(DefaultBodyLimit::max(4096)))
+        .route(
+            "/instrument-sans.ttf",
+            get(|| async {
+                (
+                    [(header::CONTENT_TYPE, "font/ttf")],
+                    include_bytes!("../public/instrument-sans.ttf").as_slice(),
+                )
+            }),
+        )
         .merge(private)
         .fallback(|| async { ApiError::missing() })
         .layer(DefaultBodyLimit::max(MAX_IMAGE_BYTES + 64 * 1024))
