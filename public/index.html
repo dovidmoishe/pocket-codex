@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#234c40">
+  <title>Pocket Codex — your creative desk</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <section id="login-screen" class="login-screen">
+    <div class="login-art" aria-hidden="true"><div class="art-circle"></div><div class="art-square"></div><div class="art-star">✳</div><span>A little space<br>for big ideas.</span></div>
+    <div class="login-content">
+      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon">✳</span> pocket<span class="wordmark-light">codex</span></a>
+      <div class="login-copy"><p class="eyebrow">YOUR PRIVATE CREATIVE DESK</p><h1>Good ideas<br>start here.</h1><p>Plan a graphic. Explore a direction.<br>Make something worth sharing.</p></div>
+      <form id="login-form">
+        <label for="access-key">Your access key</label>
+        <input id="access-key" type="password" autocomplete="current-password" placeholder="Paste the key from your laptop" required maxlength="256">
+        <p id="login-error" class="form-error" role="alert"></p>
+        <button id="login-button" class="primary-button" type="submit">Open my desk <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="login-footnote">Hosted on your laptop. Shared with someone you trust.</p>
+    </div>
+  </section>
+
+  <div id="desk" class="desk" hidden>
+    <aside id="sidebar" class="sidebar">
+      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon">✳</span> pocket<span class="wordmark-light">codex</span></a>
+      <button id="new-chat" class="new-project"><span aria-hidden="true">＋</span> New project</button>
+      <div class="sidebar-label">YOUR PROJECTS <span id="project-count">0</span></div>
+      <nav id="chat-list" class="chat-list" aria-label="Projects"></nav>
+      <div class="sidebar-bottom"><div class="sidebar-note"><span aria-hidden="true">✧</span><p>A small space to think,<br>create, and try again.</p></div><button id="logout" class="subtle-button">Sign out <span aria-hidden="true">↗</span></button></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menu-button" class="icon-button mobile-only" aria-label="Toggle projects" aria-expanded="false">☰</button>
+        <div class="breadcrumb">CREATIVE DESK <span aria-hidden="true">/</span> <span id="project-label">A fresh start</span></div>
+        <div class="topbar-actions"><button id="status-button" class="status-button"><span id="status-dot" class="status-dot"></span><span id="status-label">Connecting</span></button><button id="gallery-toggle" class="pill-button" aria-expanded="true">▧ <span>Gallery</span></button></div>
+      </header>
+
+      <div class="workspace">
+        <section class="conversation" aria-label="Creative conversation">
+          <div id="welcome" class="welcome">
+            <div class="welcome-heading"><div class="mini-label"><span class="tiny-dot"></span> ROOM FOR A NEW IDEA</div><h1>Make something<br><em>worth sharing.</em><span class="heading-star" aria-hidden="true">✳</span></h1><p>Bring the idea. We’ll find the direction together.</p></div>
+            <div class="starter-grid">
+              <button class="starter" data-prompt="Help me plan a social media graphic. Let's work out the audience, message, layout, and visual style." data-mode="chat"><span class="starter-icon peach">↗</span><strong>Find a direction</strong><span>Turn a loose idea into a clear design brief.</span><span class="starter-arrow" aria-hidden="true">↗</span></button>
+              <button class="starter" data-prompt="Generate a graphic for me. " data-mode="generate"><span class="starter-icon sage">✳</span><strong>Make an image</strong><span>Describe the picture you have in mind.</span><span class="starter-arrow" aria-hidden="true">↗</span></button>
+              <button class="starter" data-prompt="Help me explore three different visual directions for " data-mode="chat"><span class="starter-icon lavender">▧</span><strong>Explore a few options</strong><span>Try different moods, colours, and styles.</span><span class="starter-arrow" aria-hidden="true">↗</span></button>
+            </div>
+            <div class="welcome-note"><span aria-hidden="true">✧</span> No perfect prompt needed. Start wherever you are.</div>
+          </div>
+          <div id="message-list" class="message-list" hidden aria-label="Messages"></div>
+          <div id="job-bar" class="job-bar" hidden><span class="spinner" aria-hidden="true"></span><span id="job-label">Working on it…</span><button id="cancel-job">Stop</button></div>
+          <div id="job-error" class="job-error" hidden role="alert"></div>
+
+          <div class="composer-wrap">
+            <form id="composer" class="composer">
+              <div id="attachments" class="attachments" hidden></div>
+              <label class="sr-only" for="prompt">Your message</label>
+              <textarea id="prompt" placeholder="What are we creating today?" rows="2" maxlength="16000"></textarea>
+              <div class="composer-toolbar">
+                <div class="composer-tools"><button id="upload-button" class="attach-button" type="button" aria-label="Attach reference images">＋</button><div class="mode-switch" aria-label="Message mode"><button id="mode-chat" type="button" class="selected" aria-pressed="true">✧ Plan</button><button id="mode-generate" type="button" aria-pressed="false">✳ Generate</button></div></div>
+                <button id="send-button" class="send-button" type="submit" aria-label="Send message">↑</button>
+              </div>
+            </form>
+            <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+            <div class="composer-caption"><span id="composer-hint">Reference images welcome. PNG, JPEG or WebP.</span><span class="keyboard-hint">Enter to send <span aria-hidden="true">↵</span></span></div>
+          </div>
+        </section>
+
+        <aside id="gallery" class="gallery" aria-label="Project images">
+          <div class="gallery-header"><div><p class="eyebrow">THE VISUALS</p><h2>Project gallery <span id="image-count">0</span></h2></div><button id="export-chat" class="icon-button" aria-label="Export this conversation as JSON" title="Export chat JSON">↓</button></div>
+          <div id="gallery-empty" class="gallery-empty"><div class="gallery-art" aria-hidden="true"><div></div><span>✳</span></div><h3>Your ideas,<br>made visible.</h3><p>Generated images and references<br>will find a home here.</p></div>
+          <div id="gallery-list" class="gallery-list"></div>
+          <p class="gallery-footer">Saved on your laptop.<br>Ready whenever you are.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="image-dialog" class="image-dialog"><div class="dialog-top"><span id="image-dialog-name"></span><button id="close-image" class="icon-button" aria-label="Close image">×</button></div><img id="full-image" alt=""><div class="dialog-bottom"><button id="reference-image" class="pill-button">Use as reference</button><a id="download-image" class="primary-button" download>Download image ↗</a></div></dialog>
+  <dialog id="status-dialog" class="status-dialog"><div class="dialog-top"><strong>Your laptop connection</strong><button id="close-status" class="icon-button" aria-label="Close connection details">×</button></div><p id="status-detail"></p><p class="muted">The laptop must stay awake and online. Your chats and images are stored there.</p></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
