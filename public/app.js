@@ -155,7 +155,18 @@ function renderMessages() {
   list.hidden = messages.length === 0;
   for (const message of messages) {
     const row = node('article', `message ${message.role}`); row.dataset.messageId = message.id;
-    row.append(node('div', 'message-avatar', message.role === 'user' ? 'YOU' : '✳'));
+    const avatar = node('div', 'message-avatar', message.role === 'user' ? 'YOU' : undefined);
+    if (message.role !== 'user') {
+      const mark = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      mark.setAttribute('viewBox', '0 0 32 32');
+      mark.setAttribute('class', 'pocket-mark');
+      mark.setAttribute('aria-hidden', 'true');
+      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      use.setAttribute('href', '#pocket-mark');
+      mark.append(use);
+      avatar.append(mark);
+    }
+    row.append(avatar);
     const body = node('div', 'message-body');
     const heading = node('div', 'message-heading', message.role === 'user' ? 'You' : 'Pocket Codex');
     const time = node('time', '', new Date(message.created_at * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));

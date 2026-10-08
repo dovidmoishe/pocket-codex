@@ -1454,6 +1454,12 @@ dialog::backdrop {
   --duration-quick:150ms;
   --ease-smooth-out:cubic-bezier(.22,1,.36,1)
 }
+.brand-defs { position:absolute; width:0; height:0; overflow:hidden }
+.pocket-mark { display:block; width:32px; height:32px; color:var(--green) }
+.brand-icon { display:flex; align-items:center; margin-right:8px }
+.art-star .pocket-mark { width:clamp(180px,26vw,420px); height:auto; color:#f2eddc }
+.gallery-art .pocket-mark { width:42px; height:42px; color:#91a879 }
+.message-avatar .pocket-mark { width:24px; height:24px; color:#f2f5e8 }
 .ui-icon { width:20px; height:20px; flex-shrink:0; vertical-align:middle }
 .sidebar { width:242px; padding:30px 18px 18px; background:#f1f4ee; color:var(--ink); border-right:1px solid var(--line) }
 .sidebar .wordmark { font-size:22px; margin:0 10px 35px }

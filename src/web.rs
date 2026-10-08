@@ -90,6 +90,15 @@ pub fn router(app: App) -> Router {
         )
         .route("/api/login", post(login).layer(DefaultBodyLimit::max(4096)))
         .route(
+            "/logo.svg",
+            get(|| async {
+                (
+                    [(header::CONTENT_TYPE, "image/svg+xml")],
+                    include_str!("../public/logo.svg"),
+                )
+            }),
+        )
+        .route(
             "/instrument-sans.ttf",
             get(|| async {
                 (

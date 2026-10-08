@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#234c40">
   <title>Pocket Codex — your creative desk</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/app.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
+  <svg class="brand-defs" aria-hidden="true"><defs><symbol id="pocket-mark" viewBox="0 0 32 32"><path d="M11 4.5 24 7.8v11.7L11 16.2V4.5Z" fill="#91ae7d"/><path d="M5 11.5h22v9.2c0 2-1.1 3.8-2.8 4.7L16 29l-8.2-3.6C6.1 24.5 5 22.7 5 20.7v-9.2Z" fill="currentColor"/><path d="m10 17 6 2.6 6-2.6" fill="none" stroke="#fafbf9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
   <section id="login-screen" class="login-screen">
-    <div class="login-art" aria-hidden="true"><div class="art-circle"></div><div class="art-square"></div><div class="art-star">✳</div><span>A little space<br>for big ideas.</span></div>
+    <div class="login-art" aria-hidden="true"><div class="art-circle"></div><div class="art-square"></div><div class="art-star"><svg class="pocket-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#pocket-mark"/></svg></div><span>A little space<br>for big ideas.</span></div>
     <div class="login-content">
-      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon">✳</span> pocket<span class="wordmark-light">codex</span></a>
+      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon"><svg class="pocket-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#pocket-mark"/></svg></span> pocket<span class="wordmark-light">codex</span></a>
       <div class="login-copy"><p class="eyebrow">YOUR PRIVATE CREATIVE DESK</p><h1>Good ideas<br>start here.</h1><p>Plan a graphic. Explore a direction.<br>Make something worth sharing.</p></div>
       <form id="login-form">
         <label for="access-key">Your access key</label>
@@ -26,11 +28,11 @@
 
   <div id="desk" class="desk" hidden>
     <aside id="sidebar" class="sidebar">
-      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon">✳</span> pocket<span class="wordmark-light">codex</span></a>
+      <a class="wordmark" href="/" aria-label="Pocket Codex home"><span class="brand-icon"><svg class="pocket-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#pocket-mark"/></svg></span> pocket<span class="wordmark-light">codex</span></a>
       <button id="new-chat" class="new-project"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.001 5.00003V19.002"/><path d="M19.002 12.002L4.99998 12.002"/></svg> New project</button>
       <div class="sidebar-label">Projects <span id="project-count">0</span></div>
       <nav id="chat-list" class="chat-list" aria-label="Projects"></nav>
-      <div class="sidebar-bottom"><div class="sidebar-note"><span aria-hidden="true">✧</span><p>Your own little<br>creative corner.</p></div><button id="logout" class="subtle-button">Sign out <span aria-hidden="true">↗</span></button></div>
+      <div class="sidebar-bottom"><button id="logout" class="subtle-button">Sign out <span aria-hidden="true">↗</span></button></div>
     </aside>
 
     <main class="main">
@@ -43,7 +45,7 @@
       <div class="workspace">
         <section class="conversation" aria-label="Creative conversation">
           <div id="welcome" class="welcome">
-            <div class="welcome-heading"><div class="mini-label"><span class="tiny-dot"></span> A LITTLE SPACE FOR BIG IDEAS</div><h1>What will you<br><em>create today?</em><span class="heading-star" aria-hidden="true">✳</span></h1><p>A thought, a brief, a picture. Let’s make it happen.</p></div>
+            <div class="welcome-heading"><h1>What will you<br><em>create today?</em></h1><p>A thought, a brief, a picture. Let’s make it happen.</p></div>
             <div class="starter-grid">
               <button class="starter" data-prompt="Help me plan a social media graphic. Let's work out the audience, message, layout, and visual style." data-mode="chat"><span class="starter-icon peach"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16.4998C6.7725 15.4011 6 13.7768 6 11.9998C6 8.68605 8.68629 5.99976 12 5.99976C15.3137 5.99976 18 8.68605 18 11.9998C18 13.7768 17.2275 15.4011 16 16.4998"/><path d="M12 11.9998V16.4998"/><path d="M9.5 18.9998H14.5"/><path d="M10.5 21.4998H13.5"/><path d="M3.5 11.9998H2.5M5.98438 5.97632L5.23438 5.23022M18.0195 5.97632L18.7695 5.23022M21.5 11.9998H20.5M12 2.49976V3.49976"/></svg></span><strong>Plan a graphic</strong><span>Find the idea and the direction.</span><span class="starter-arrow"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"/></svg></span></button>
               <button class="starter" data-prompt="Generate a graphic for me. " data-mode="generate"><span class="starter-icon sage"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 15.502L7.46967 11.5323C7.80923 11.1927 8.26978 11.002 8.75 11.002C9.23022 11.002 9.69077 11.1927 10.0303 11.5323L12.5858 14.0877C13.2525 14.7544 13.5858 15.0877 14 15.0877C14.4142 15.0877 14.7475 14.7544 15.4142 14.0877L15.9697 13.5323C16.3092 13.1927 16.7698 13.002 17.25 13.002C17.7302 13.002 18.1908 13.1927 18.5303 13.5323L20.5 15.502"/><path d="M21 10.5V12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682C3 18.364 3 16.2426 3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3H13.5"/><path d="M19.5 2.9375V4.5M19.5 4.5V6.0625M19.5 4.5H18.25M19.5 4.5H20.75M22 4.5L20.9156 4.13852C20.4179 3.97263 20.0274 3.58211 19.8615 3.08443L19.5 2L19.1385 3.08443C18.9726 3.58211 18.5821 3.97263 18.0844 4.13852L17 4.5L18.0844 4.86148C18.5821 5.02737 18.9726 5.41789 19.1385 5.91557L19.5 7L19.8615 5.91557C20.0274 5.41789 20.4179 5.02737 20.9156 4.86148L22 4.5Z"/></svg></span><strong>Make an image</strong><span>Bring what’s in your head to life.</span><span class="starter-arrow"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"/></svg></span></button>
@@ -72,7 +74,7 @@
 
         <aside id="gallery" class="gallery" aria-label="Project images">
           <div class="gallery-header"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Gallery <span id="image-count">0</span></h2></div><button id="export-chat" class="icon-button" aria-label="Export this conversation as JSON" title="Export chat JSON"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg></button></div>
-          <div id="gallery-empty" class="gallery-empty"><div class="gallery-art" aria-hidden="true"><div></div><span>✳</span></div><h3>Your next great<br>idea goes here.</h3><p>Images you create and references<br>you add, all in one place.</p></div>
+          <div id="gallery-empty" class="gallery-empty"><div class="gallery-art" aria-hidden="true"><div></div><span><svg class="pocket-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#pocket-mark"/></svg></span></div><h3>Your next great<br>idea goes here.</h3><p>Images you create and references<br>you add, all in one place.</p></div>
           <div id="gallery-list" class="gallery-list"></div>
           <p class="gallery-footer">Stored on your laptop. Just for you.</p>
         </aside>
