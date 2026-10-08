@@ -7,4 +7,3 @@ Run `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, and `cargo
 
 Use Conventional Commits: `type(scope): description`. Use lowercase, imperative
 descriptions with no trailing period. Scopes: `web`, `api`, `repo`, `deps`, `ci`.
-
